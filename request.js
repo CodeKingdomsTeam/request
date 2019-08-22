@@ -1011,7 +1011,7 @@ Request.prototype.onRequestResponse = function (response) {
     }
 
     var responseContent
-    if (self.gzip && !noBody(response.statusCode)) {
+    if (self.gzip && !self.skipGunzip && !noBody(response.statusCode)) {
       var contentEncoding = response.headers['content-encoding'] || 'identity'
       contentEncoding = contentEncoding.trim().toLowerCase()
 
